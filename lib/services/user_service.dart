@@ -24,7 +24,7 @@ required BuildContext context}) async{
           ),
         );
         return;
-        
+
       }
 
       //create and instance from shared preferance
@@ -43,4 +43,10 @@ required BuildContext context}) async{
       err.toString();
     }
   }
+  //moethod to check whether username is saved inthe shared Preferances
+  static Future<bool> checkUserName() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+      String ? UserName = prefs.getString('username');
+      return UserName != null;
+    }
 } 
