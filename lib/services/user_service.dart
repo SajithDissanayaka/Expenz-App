@@ -49,4 +49,16 @@ required BuildContext context}) async{
       String ? UserName = prefs.getString('username');
       return UserName != null;
     }
+
+    //get the username and the email
+    static Future<Map < String , String >> getUserdata() async{
+      //create an instance for shared preferances
+      SharedPreferences pref = await SharedPreferences.getInstance();
+
+      String ? userName = pref.getString("username");
+      String ? email = pref.getString("email");
+
+      return {"userName" : userName!, "email" : email!};
+
+    }
 } 
